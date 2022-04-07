@@ -1,6 +1,7 @@
 package com.example.activemq.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ public class JmsProducer {
   private Queue queue;
 
   @Autowired
+  @Qualifier("jmsTemplateOne")
   private JmsTemplate jmsTemplate;
 
   @GetMapping("publish/{msg}")
